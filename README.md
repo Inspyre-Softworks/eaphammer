@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/s0lst1c3/eaphammer)
+
 ![logo](https://rawcdn.githack.com/s0lst1c3/eaphammer/ab8202de4a298957a2bc5662f986cdfb195490e4/docs/img/logo.png)
 
 by Gabriel Ryan ([s0lst1c3](https://twitter.com/s0lst1c3))(gabriel[at]solstice|d0t|sh)
