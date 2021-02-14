@@ -33,10 +33,24 @@ if __name__ == '__main__':
     openssl_bin = settings.dict['paths']['openssl']['bin']
     dh_file = settings.dict['paths']['certs']['dh']
 
-    if input('Important: it is highly recommended that you run "apt -y update" and "apt -y upgrade" prior to running this setup script. Do you wish to proceed? Enter [y/N]: ').lower() != 'y':
-        sys.exit('Aborting.')
-    print()
+    # Give user a choice to automate updating
+    # system packages without exiting the script
 
+    update_choice = input("-IMPORTANT-\nIt's highly recommended that you update your system packages before continuing!\nMay this script run 'sudo apt update && sudo apt upgrade -y'? Enter [(y)es/(N)o/(q)uit]: ").lower()
+
+    if update_choice in ['y', 'yes']:
+        print('\n[*] Updating packages...\n')
+        os.system('sudo apt update && sudo apt upgrade -y')
+    
+    elif update_choice in ['n', 'no']:
+        print('\n[X] Not updating system packages!\n')
+    
+    elif update_choice in ['q', 'quit']:
+        print('\nExiting script!\n')
+
+    # Continue with process.
+    
+    print()
 
     print('\n[*] Removing stub files...\n')
     os.system('find {} -type f -name \'stub\' -exec rm -f {{}} +'.format(root_dir))
